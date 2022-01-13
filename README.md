@@ -1,4 +1,4 @@
-# WeatherApp - Gold Standard React Single Web Page Application
+# WeatherApp - Gold Standard Single Page React Application
 ---
 # Getting Started with Create React App
 
