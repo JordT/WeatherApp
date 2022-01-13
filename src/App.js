@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar/searchBar';
-import DisplayWeather from './components/DisplayWeather/NextFiveDays/example'
+import SearchBar from './components/SearchBar/searchBar.js';
 
 function App() {
   // We manage state here as we'll get it in SearchBar
@@ -11,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <SearchBar />
-        <DisplayWeather props={location}/>
+        {/* <DisplayWeather props={state}/> */}
       </header>
     </div>
   );
