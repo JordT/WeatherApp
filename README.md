@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+### Straw man suggestion for browser sized window
 <img width="684" alt="image" src="https://user-images.githubusercontent.com/62376093/149377109-72625e26-4e45-4128-9b94-ea4f1f661683.png">
 
 
