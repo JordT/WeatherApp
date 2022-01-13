@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   // We manage state here as we'll get it in SearchBar
-  const [state, setLocation] = useState({currentLocation: "Monaco"})
+  const [location, setLocation] = useState({currentLocation: "Monaco"})
 
   return (
     <div className="App">
