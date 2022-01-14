@@ -5,8 +5,8 @@
 }
 
 .App-header {
-  min-height: 5vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: black;
 }
