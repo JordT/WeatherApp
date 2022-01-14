@@ -6,9 +6,8 @@ const NextFiveDays = (props) => {
 
         weather.map((d, i) => {
             
-            // return console.log(d.day.high)
             return displayDays.push(
-                <h2>High: {d.day.high}</h2>
+                <h2 key={i} >High: {d.day.high}</h2>
             )
         })
         
