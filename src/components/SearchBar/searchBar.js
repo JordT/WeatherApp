@@ -11,21 +11,27 @@ const SearchBar = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        // Calling the GCP geocoding API to get lat/lon values.
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyA3mAQaQEIWHzmo5vMI6qIoCYAUUjLeAE4`)
         .then((res) => {
-            console.log('google fired')
           setLat(res.data.results[0].geometry.location.lat)
           setLon(res.data.results[0].geometry.location.lng)
         })
+        .catch((err) => {
+            console.log(err);
+        });
   
+        // Taking the GCP values and hitting the OpenWeather API to retreive weather data.
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=508459cf94bd056fe8b95a12ab1ac1e7`)
         .then((res) => {
-            console.log('openweather api firing')
             // toFixed rounds the number to specified floating point value. 
             // -273.15 is the formula for the Kelvin to Celcius conversion.
             setResData((res.data.current.temp-273.15).toFixed(0)) 
             console.log(res.data)
         }) 
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     return (
