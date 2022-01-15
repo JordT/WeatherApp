@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
 
     const [resData, setResData] = useState([])
     const [location, setLocation] = useState('Monaco')
-
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = useCallback(e => {
         e.preventDefault()
 
         // Calling the GCP geocoding API to get lat/lon values.
@@ -19,14 +19,15 @@ const SearchBar = () => {
             .then((res) => {
                 // toFixed rounds the number to specified floating point value. 
                 // -273.15 is the formula for the Kelvin to Celcius conversion.
-                setResData((res.data.current.temp-273.15).toFixed(0)) 
+                setResData((res.data.current.temp-273.15).toFixed(0))
+                onSearch((res.data.current.temp-273.15).toFixed(0)) 
                 console.log(res.data)
             }) 
             .catch((err) => {
                 console.log(err);
             });
         })       
-    }
+    }, [onSearch])
 
     return (
         <div className="App-header">
