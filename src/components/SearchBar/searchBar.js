@@ -3,10 +3,14 @@ import { useState, useCallback } from 'react';
 
 const SearchBar = ({onSearch}) => {
 
-    const [resData, setResData] = useState([])
     const [location, setLocation] = useState('Monaco')
     
-    const handleSubmit = useCallback(e => {
+    // Updates parent App.js state
+    const handleUpdate = useCallback( res => {
+        onSearch(res)
+    }, [onSearch])
+    
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         // Calling the GCP geocoding API to get lat/lon values.
@@ -19,15 +23,15 @@ const SearchBar = ({onSearch}) => {
             .then((res) => {
                 // toFixed rounds the number to specified floating point value. 
                 // -273.15 is the formula for the Kelvin to Celcius conversion.
-                setResData((res.data.current.temp-273.15).toFixed(0))
-                onSearch((res.data.current.temp-273.15).toFixed(0)) 
+                // Sends data to a callback func for the SearchBar component.
+                handleUpdate((res.data.current.temp-273.15).toFixed(0))
                 console.log(res.data)
             }) 
             .catch((err) => {
                 console.log(err);
             });
         })       
-    }, [onSearch])
+    }
 
     return (
         <div className="App-header">
@@ -37,7 +41,6 @@ const SearchBar = ({onSearch}) => {
                 </input>
                 <button type="submit" id="submit-search" > Search </button>
             </form>
-            Current temperature: {resData}C
         </div>
     )
 }
