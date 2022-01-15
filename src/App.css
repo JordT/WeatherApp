@@ -5,10 +5,23 @@
 }
 
 .App-header {
-  min-height: 5vh;
   display: flex;
+  align-items: center;
   flex-direction: column;
   color: white;
+  padding: 10px;
+}
+
+#input-search {
+  border-radius: 5px;
+  height: 20px;
+  width: 250px;
+  margin: 5px;
+}
+
+#submit-search {
+  border-radius: 2px;
+  margin: 5px;
 }
 
 .card-container{

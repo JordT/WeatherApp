@@ -4,6 +4,7 @@ import NextFiveDays from './components/DisplayWeather/NextFiveDays/NextFiveDays'
 import SearchBar from './components/SearchBar/searchBar.js';
 import defaultweather from './defaultweather.json';
 
+
 function App() {
   
   // const defaultweather = './defaultweather.json'
