@@ -1,0 +1,36 @@
+{
+    "currentLocation": "Monaco", 
+    "dateTime": "datetimeobject",
+    "sunSet": "2000",
+    "sunRise": "0800",
+    "weather": [{
+      "day": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {  
+    "day": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {  
+    "day": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {  
+    "day": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {  
+    "day": {
+        "high": 1,
+        "low": 0
+      }
+    }]
+}
