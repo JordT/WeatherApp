@@ -1,5 +1,6 @@
 {
-    "currentLocation": "Monaco",
+    "currentLocation": "Monaco", 
+    "dateTime": "datetimeobject",
     "sunSet": "2000",
     "sunRise": "0800",
     "weather": [{

@@ -8,12 +8,12 @@ function App() {
   
   // const defaultweather = './defaultweather.json'
   // We manage state here as we'll get it in SearchBar
-  const [location, setLocation] = useState(defaultweather)
+  const [weatherInfo, setWeatherInfo] = useState(defaultweather)
 
   return (
     <div className="App">
         <SearchBar />
-        <NextFiveDays location={location}/>
+        <NextFiveDays location={weatherInfo}/>
     </div>
   );
 }

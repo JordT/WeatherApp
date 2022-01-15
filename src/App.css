@@ -10,3 +10,18 @@
   flex-direction: column;
   color: white;
 }
+
+.card-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5vw
+}
+
+.card {
+  background-color: white;
+}
+
+.locationBanner {
+  width: 100vw;
+}
