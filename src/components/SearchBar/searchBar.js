@@ -1,11 +1,15 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
 
-    const [resData, setResData] = useState([])
     const [location, setLocation] = useState('Monaco')
-
+    
+    // Updates parent App.js state
+    const handleUpdate = useCallback( res => {
+        onSearch(res)
+    }, [onSearch])
+    
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -19,7 +23,8 @@ const SearchBar = () => {
             .then((res) => {
                 // toFixed rounds the number to specified floating point value. 
                 // -273.15 is the formula for the Kelvin to Celcius conversion.
-                setResData((res.data.current.temp-273.15).toFixed(0)) 
+                // Sends data to a callback func for the SearchBar component.
+                handleUpdate((res.data.current.temp-273.15).toFixed(0))
                 console.log(res.data)
             }) 
             .catch((err) => {
@@ -36,7 +41,6 @@ const SearchBar = () => {
                 </input>
                 <button type="submit" id="submit-search" > Search </button>
             </form>
-            Current temperature: {resData}C
         </div>
     )
 }

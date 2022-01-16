@@ -10,10 +10,12 @@ function App() {
   // const defaultweather = './defaultweather.json'
   // We manage state here as we'll get it in SearchBar
   const [weatherInfo, setWeatherInfo] = useState(defaultweather)
+  const [temperature, setTemperature] = useState([])
 
   return (
     <div className="App">
-        <SearchBar />
+        <SearchBar onSearch={setTemperature}/>
+        Current temperature: {temperature} C
         <NextFiveDays location={weatherInfo}/>
     </div>
   );
