@@ -21,11 +21,8 @@ const SearchBar = ({onSearch}) => {
           // Taking the GCP values and hitting the OpenWeather API to retreive weather data.
           axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=508459cf94bd056fe8b95a12ab1ac1e7`)
             .then((res) => {
-                // toFixed rounds the number to specified floating point value. 
-                // -273.15 is the formula for the Kelvin to Celcius conversion.
-                // Sends data to a callback func for the SearchBar component.
-                handleUpdate((res.data.current.temp-273.15).toFixed(0))
                 console.log(res.data)
+                handleUpdate(res.data)
             }) 
             .catch((err) => {
                 console.log(err);
