@@ -1,6 +1,18 @@
 import '../../../App.css'
 
 const NextFiveDays = (props) => {
+
+    const kelvinConversion = (temperature, option) => {
+      
+        if (option === 'f')
+            return (((temperature - 273.15) * 1.8 + 32).toFixed(0))
+        
+        if (option === 'c')
+            return ((temperature - 273.15).toFixed(0))
+
+        else
+            return ('kelvinConversion: Error invalid option: "' + option + '"')
+    }
     
     const DisplayDay = (weather) => {
 
@@ -9,8 +21,9 @@ const NextFiveDays = (props) => {
         weather.map((d, i) => {
             displayDays.push(
                 <div key={i} className="card">
-                    <h2>High: {(d.temp.max-271.35).toFixed(0)}C</h2>
-                    <h2>Low: {(d.temp.min-271.35).toFixed(0)}C</h2>
+                    <h2>High: {(d.temp.max-273.15).toFixed(0)}C</h2>
+                    <h2>Low: {(d.temp.min-273.15).toFixed(0)}C</h2>
+                    <h2>mid: {kelvinConversion(d.temp.max, 'v')}C</h2>
                 </div>
             )
         })
