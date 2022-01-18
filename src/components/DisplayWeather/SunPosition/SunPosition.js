@@ -5,8 +5,9 @@ const SunPosition = (sunData) => {
   return (
     //   <h1>{sunData}</h1>
       <div className="sun-pos-container">
-         <div className="arc"></div>
-         <div className="position"></div>
+         <div className="arc">
+            <div className="sun"></div>
+        </div>
          {/* <h1>SunPosition</h1> */}
       </div>
 
