@@ -40,8 +40,11 @@
   padding: 10px 25px 10px 25px;
 }
 
+.day-name {
+  font-weight: bold;
+}
+
 #current-card {
-  color:red;
 }
 
 .locationBanner {
