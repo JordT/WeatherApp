@@ -36,9 +36,8 @@
 .card {
   background-color: rgb(203, 201, 201);
   border-radius: 8px;
-  min-width: 10vw;
-  max-height: 30vh;
   text-align: center;
+  padding: 10px 25px 10px 25px;
 }
 
 #current-card {
