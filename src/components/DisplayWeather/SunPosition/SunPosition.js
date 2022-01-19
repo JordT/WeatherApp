@@ -1,54 +1,72 @@
 import './SunPosition.css'
 
-const SunPosition = (sunData) => {
+const SunPosition = (props) => {
+
+const { DateTime } = require("luxon");
+
 
 // get Sun position from sunrise + sundown information, then get that to 1-9 figure, pass that into sunPos
+// console.log(props.sunData.sunrise)
+// console.log(props.sunData.sunset)
 
-// define 12 positions?
+let sunrise = DateTime.fromSeconds(props.sunData.sunrise)
+let sunset = DateTime.fromSeconds(props.sunData.sunset)
+let currentDT = DateTime.now()
+
+// console.log(sunrise)
+// console.log(sunset)
+// console.log(currentDT)
+
+// get difference between sunrise/sunset
+let hoursOfLight = sunset.hour - sunrise.hour
+// console.log(hoursOfLight)
+
+// get currenttime as a % of total hours of light
+let percTime = ((currentDT.hour / 24) * 10).toFixed(0)
+// it would be better to reflect % of current availabl light via hoursOfLight
+console.log(percTime)
+// define 9 positions
 let leftPos = 0;
 let topPos = 0;
-
-const sunPos = (x) => {
-  switch(x) {
-    case 1:
-      leftPos = -7.5;
-      topPos = 80;
-      break;
-    case 2:
-      leftPos = -6;
-      topPos = 60;
-      break;
-    case 3:
-      leftPos = 5;
-      topPos = 20;
-      break;
-    case 4:
-      leftPos = 20;
-      topPos = -5;
-      break;
-    case 5:
-      leftPos = 44;
-      topPos = -15;
-      break;
-    case 6:
-      leftPos = 64;
-      topPos = -5;
-      break;
-    case 7:
-      leftPos = 80;
-      topPos = 20;
-      break;
-    case 8:
-      leftPos = 91;
-      topPos = 60;
-      break;
-    case 9:
-      leftPos = 93;
-      topPos = 80;
-      break;
-  }
+switch(percTime) {
+  case '1':
+    leftPos = -7.5;
+    topPos = 80;
+    break;
+  case '2':
+    leftPos = -6;
+    topPos = 60;
+    break;
+  case '3':
+    leftPos = 5;
+    topPos = 20;
+    break;
+  case '4':
+    leftPos = 20;
+    topPos = -5;
+    break;
+  case '5':
+    leftPos = 44;
+    topPos = -15;
+    break;
+  case '6':
+    leftPos = 64;
+    topPos = -5;
+    break;
+  case '7':
+    leftPos = 80;
+    topPos = 20;
+    break;
+  case '8':
+    leftPos = 91;
+    topPos = 60;
+    break;
+  case '9':
+    leftPos = 93;
+    topPos = 80;
+    break;
 }
-sunPos(8)
+
 return (
     //   <h1>{sunData}</h1>
       <div className="sun-pos-container">
@@ -61,7 +79,6 @@ return (
               <div className="sun"></div> 
            </div>
         </div>
-         {/* <h1>SunPosition</h1> */}
       </div>
 
   )

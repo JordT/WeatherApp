@@ -5,6 +5,8 @@ import SearchBar from './components/SearchBar/searchBar.js';
 import defaultweather from './exampleData.json';
 import SunPosition from './components/DisplayWeather/SunPosition/SunPosition'
 
+// const { DateTime } = require("luxon");
+
 function App() {
   
   // const defaultweather = './defaultweather.json'
@@ -15,7 +17,7 @@ function App() {
     <div className="App">
         <SearchBar onSearch={setWeatherInfo}/>
         <NextFiveDays location={weatherInfo}/>
-        <SunPosition sunData={weatherInfo}/>
+        <SunPosition sunData={weatherInfo.current}/>
     </div>
   );
 }
