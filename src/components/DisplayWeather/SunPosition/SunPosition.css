@@ -15,14 +15,17 @@
     border: 3px solid grey;  
     border-bottom: none;
     background-color: 0;
+    
 }
 
+.sun-container {
+    position: absolute;
+    /* -5 -> 95% */
+    /* left: -10%;  */
+    /* top: 80%; */
+}
 .sun {
-    /* set sun location */
-    position: inherit;
-    /* put sun in the middle, adjust from their... */
-
-    /* set sun size */
+    /* shape */
     height: 30px;
     width: 30px;
     background-color: rgb(248, 232, 2);
