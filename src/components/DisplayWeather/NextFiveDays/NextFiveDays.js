@@ -21,8 +21,13 @@ const NextFiveDays = (props) => {
         weather.map((d, i) => {
             displayDays.push(
                 <div key={i} className="card">
-                    <h2>Low: {d.temp.max.toFixed(0)}C</h2>
-                    <h2>High: {d.temp.min.toFixed(0)}C</h2>
+                    <p1>{d.weather[0].description}</p1><br/>
+                    <img 
+                    src={`http://openweathermap.org/img/wn/${d.weather[0].icon}@2x.png`}                   
+                    alt="new"
+                    />
+                    <p1>Low: {d.temp.max.toFixed(0)}C</p1><br/>
+                    <p1>High: {d.temp.min.toFixed(0)}C</p1>
                 </div>
             )
         })
