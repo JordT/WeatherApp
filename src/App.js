@@ -2,8 +2,10 @@ import { useState } from 'react';
 import './App.css';
 import NextFiveDays from './components/DisplayWeather/NextFiveDays/NextFiveDays';
 import SearchBar from './components/SearchBar/searchBar.js';
-import defaultweather from './defaultweather.json';
+import defaultweather from './exampleData.json';
+import SunPosition from './components/DisplayWeather/SunPosition/SunPosition'
 
+// const { DateTime } = require("luxon");
 
 function App() {
   
@@ -15,6 +17,7 @@ function App() {
     <div className="App">
         <SearchBar onSearch={setWeatherInfo}/>
         <NextFiveDays location={weatherInfo}/>
+        <SunPosition sunData={weatherInfo.current}/>
     </div>
   );
 }
