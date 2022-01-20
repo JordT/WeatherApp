@@ -17,7 +17,7 @@ function App() {
     <div className="App">
         <SearchBar onSearch={setWeatherInfo}/>
         <NextFiveDays location={weatherInfo}/>
-        <SunPosition sunData={weatherInfo.current}/>
+        <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone}/>
     </div>
   );
 }

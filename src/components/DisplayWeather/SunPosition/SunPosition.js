@@ -1,24 +1,27 @@
+
+/// to do: CSS formatting on sunrise/sunsettimes
+
 import './SunPosition.css'
 
 const SunPosition = (props) => {
 
 const { DateTime } = require("luxon");
 
-let sunrise = DateTime.fromSeconds(props.sunData.sunrise)
-let sunset = DateTime.fromSeconds(props.sunData.sunset)
-let currentDT = DateTime.now()
+const sunrise = DateTime.fromSeconds(props.sunData.sunrise).setZone(props.timeZone)
+const sunset = DateTime.fromSeconds(props.sunData.sunset).setZone(props.timeZone)
+const currentDT = DateTime.now().setZone(props.timeZone) // localtime
 
-// get difference between sunrise/sunset
-let hoursOfLight = sunset.hour - sunrise.hour
 
-// get currenttime as a % of total hours of light
-let percTime = ((currentDT.hour / 24) * 10).toFixed(0)
-// it would be better to reflect % of current availabl light via hoursOfLight
+// calculate sun position based on time since sunrise...
+const hoursOfLight = sunset.hour - sunrise.hour
+const currentTime = currentDT.hour - sunrise.hour
+const sunPos = ((currentTime / hoursOfLight) * 10).toFixed(0)
 
 // define 9 positions
-let leftPos = 0;
+let leftPos = 0; 
 let topPos = 0;
-switch(percTime) {
+switch(sunPos) {
+
   case '1':
     leftPos = -7.5;
     topPos = 80;
@@ -55,12 +58,18 @@ switch(percTime) {
     leftPos = 93;
     topPos = 80;
     break;
+
+  default:
+    leftPos = 10000
+    topPos =10000;
+    break;
 }
 
 return (
-    //   <h1>{sunData}</h1>
       <div className="sun-pos-container">
          <div className="arc">
+         <h3>Sunrise {sunrise.hour}:{sunrise.minute}</h3>
+
            <div className="sun-container"
             style={{
               left: `${leftPos}%`, // change these to move sun pos
@@ -68,6 +77,7 @@ return (
               }}>
               <div className="sun"></div> 
            </div>
+         <h3>Sunset {sunset.hour}:{sunset.minute}</h3>
         </div>
       </div>
 
