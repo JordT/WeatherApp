@@ -1,3 +1,4 @@
+
 /// to do: CSS formatting on sunrise/sunsettimes
 
 import './SunPosition.css'
@@ -20,6 +21,7 @@ const sunPos = ((currentTime / hoursOfLight) * 10).toFixed(0)
 let leftPos = 0; 
 let topPos = 0;
 switch(sunPos) {
+
   case '1':
     leftPos = -7.5;
     topPos = 80;
@@ -56,6 +58,7 @@ switch(sunPos) {
     leftPos = 93;
     topPos = 80;
     break;
+
   default:
     leftPos = 10000
     topPos =10000;
@@ -66,6 +69,7 @@ return (
       <div className="sun-pos-container">
          <div className="arc">
          <h3>Sunrise {sunrise.hour}:{sunrise.minute}</h3>
+
            <div className="sun-container"
             style={{
               left: `${leftPos}%`, // change these to move sun pos
