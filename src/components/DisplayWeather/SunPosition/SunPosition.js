@@ -4,27 +4,17 @@ const SunPosition = (props) => {
 
 const { DateTime } = require("luxon");
 
-
-// get Sun position from sunrise + sundown information, then get that to 1-9 figure, pass that into sunPos
-// console.log(props.sunData.sunrise)
-// console.log(props.sunData.sunset)
-
 let sunrise = DateTime.fromSeconds(props.sunData.sunrise)
 let sunset = DateTime.fromSeconds(props.sunData.sunset)
 let currentDT = DateTime.now()
 
-// console.log(sunrise)
-// console.log(sunset)
-// console.log(currentDT)
-
 // get difference between sunrise/sunset
 let hoursOfLight = sunset.hour - sunrise.hour
-// console.log(hoursOfLight)
 
 // get currenttime as a % of total hours of light
 let percTime = ((currentDT.hour / 24) * 10).toFixed(0)
 // it would be better to reflect % of current availabl light via hoursOfLight
-console.log(percTime)
+
 // define 9 positions
 let leftPos = 0;
 let topPos = 0;
