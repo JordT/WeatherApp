@@ -19,7 +19,7 @@ const SearchBar = ({onSearch}) => {
           const lat = res.data.results[0].geometry.location.lat
           const lon = res.data.results[0].geometry.location.lng
           // Taking the GCP values and hitting the OpenWeather API to retreive weather data.
-          axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+          axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
             .then((res) => {
                 console.log(res.data)
                 handleUpdate(res.data)
