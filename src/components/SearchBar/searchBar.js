@@ -34,17 +34,15 @@ const SearchBar = ({onSearch, formattedLocation}) => {
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.REACT_APP_GCP_API_KEY}`)
         .then((res) => {
             setDisplayLocation(res.data.results[0].formatted_address)
-            console.log(res.data)
             const lat = res.data.results[0].geometry.location.lat
             const lon = res.data.results[0].geometry.location.lng
             // Taking the GCP values and hitting the OpenWeather API to retreive weather data.
             axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
             .then((res) => {
-                console.log(res.data)
                 handleUpdate(res.data)
             }) 
             .catch((err) => {
-                console.log(err);
+                console.err(err);
             });
         })       
     }
