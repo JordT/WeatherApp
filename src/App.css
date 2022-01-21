@@ -47,7 +47,9 @@
   font-weight: bold;
 }
 
-#current-card {
+.current-card {
+  flex-grow: 2;
+  /* width: 100vw; */
 }
 
 .locationBanner {
