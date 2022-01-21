@@ -20,7 +20,7 @@ function App() {
         <SearchBar onSearch={setWeatherInfo} formattedLocation={setDisplayLocation}/>
         <h1 className="locationBanner"> The weather in {displayLocation} </h1>
         <NextFiveDays location={weatherInfo}/>
-        <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone}/>
+        <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone} />
     </div>
   );
 }
