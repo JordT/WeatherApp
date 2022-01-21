@@ -3,8 +3,8 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background-color: #282c34;
   min-height: 100vh;
+  background-color: rgb(30, 104, 133);
 }
 
 .App-header {
@@ -16,15 +16,13 @@
 }
 
 #input-search {
-  border-radius: 5px;
-  height: 20px;
-  width: 250px;
-  margin: 5px;
-}
-
-#submit-search {
-  border-radius: 2px;
-  margin: 5px;
+  border-radius: 10px;
+  border: 0;
+  height: 50px;
+  width: 600px;
+  margin: 20px 0px 0px 0px;
+  font-size: xx-large;
+  padding: 10px;
 }
 
 .card-container{
@@ -37,7 +35,7 @@
 }
 
 .card {
-  background-color: rgb(203, 201, 201);
+  background-color: rgb(206, 203, 203);
   border-radius: 8px;
   text-align: center;
   padding: 10px 25px 10px 25px;
@@ -53,4 +51,11 @@
 .locationBanner {
   width: 100vw;
   color: white;
+  font-weight: normal;
+}
+
+.timeBanner {
+  width: 100vw;
+  color: white;
+  font-weight: normal;
 }

@@ -68,8 +68,6 @@ switch(sunPos) {
 return (
       <div className="sun-pos-container">
          <div className="arc">
-         <h3>Sunrise {sunrise.hour}:{sunrise.minute}</h3>
-
            <div className="sun-container"
             style={{
               left: `${leftPos}%`, // change these to move sun pos
@@ -77,7 +75,6 @@ return (
               }}>
               <div className="sun"></div> 
            </div>
-         <h3>Sunset {sunset.hour}:{sunset.minute}</h3>
         </div>
       </div>
 
