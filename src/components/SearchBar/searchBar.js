@@ -36,7 +36,6 @@ const SearchBar = ({onSearch}) => {
                 <input type="text" placeholder="Enter a city..." id="input-search"
                     onChange={(l) => setLocation(l.target.value)} value={location}>
                 </input>
-                <button type="submit" id="submit-search" > Search </button>
             </form>
         </div>
     )
