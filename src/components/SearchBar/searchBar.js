@@ -1,14 +1,27 @@
 import axios from 'axios';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 const SearchBar = ({onSearch}) => {
 
     const [location, setLocation] = useState('Monaco')
     
+    // Loads Monaco weather on page load.
+    useEffect(() => {
+        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=43.7384&lon=7.4246&exclude=hourly,minutely&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+            .then((res) => {
+                console.log(res.data)
+                handleUpdate(res.data)
+            }) 
+            .catch((err) => {
+                console.log(err);
+        });
+    }, [])
+
     // Updates parent App.js state
     const handleUpdate = useCallback( res => {
         onSearch(res)
     }, [onSearch])
+
     
     const handleSubmit = (e) => {
         e.preventDefault()
