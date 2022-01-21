@@ -1,0 +1,37 @@
+.current-weather-card {
+    flex-grow: 2;
+    width: 60vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
+}
+
+.current-weather-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* flexbox that should be rows */
+.current-card {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(203, 201, 201);
+  border-radius: 8px;
+  text-align: left;
+  padding: 5px 25px 5px 25px;
+}
+
+/* Current weather card... box 1 */
+.current-weather{ 
+
+}
+
+.current-temperature {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  text-align: center;
+  align-self: center;
+}
+
+.weather-by-hour {
+  background-color: red;
+}

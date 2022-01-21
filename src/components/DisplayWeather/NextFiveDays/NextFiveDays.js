@@ -1,7 +1,7 @@
 import '../../../App.css'
 import '../../formatTime/formatTime'
 import formatTime from '../../formatTime/formatTime'
-import DisplayCurrent from './CurrentDayWeather'
+import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather'
 
 const NextFiveDays = (props) => {
 
