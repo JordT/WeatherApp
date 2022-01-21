@@ -46,8 +46,7 @@ const NextFiveDays = (props) => {
 
     return (
         <div> 
-            <h1 className="locationBanner"> The weather in {props.location.timezone} </h1>
-            <h2 className="locationBanner"> Current Time: {formatTime(props.location.current.dt).slice(-13, -8)},  
+            <h2 className="timeBanner"> Current Time: {formatTime(props.location.current.dt).slice(-13, -8)},  
                 Local Time: {formatTime(props.location.current.dt + props.location.timezone_offset).slice(-13, -8)} 
             </h2>
             <div className="card-container">

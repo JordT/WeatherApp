@@ -54,4 +54,11 @@
 .locationBanner {
   width: 100vw;
   color: white;
+  font-weight: normal;
+}
+
+.timeBanner {
+  width: 100vw;
+  color: white;
+  font-weight: normal;
 }
