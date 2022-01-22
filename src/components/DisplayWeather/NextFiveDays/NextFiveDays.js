@@ -1,24 +1,11 @@
 import '../../../App.css'
 import '../../formatTime/formatTime'
 import formatTime from '../../formatTime/formatTime'
+import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather'
 
 const NextFiveDays = (props) => {
 
-    const DisplayCurrent = (w) => {
-        
-        return (
-            <div key='current' id="current-card" className="card">
-                    <p1 className="day-name">Current</p1><br/>
-                    <p1>{w.weather[0].description}</p1><br/>
-                    <img
-                    className="weather-icon" 
-                    src={`http://openweathermap.org/img/wn/${w.weather[0].icon}@2x.png`}                   
-                    alt="new"
-                    /><br/>
-                    <p1>{w.temp.toFixed(0)}C</p1>
-            </div>
-        )
-    }
+
     
     const DisplayDay = (weather) => {
 
@@ -50,7 +37,8 @@ const NextFiveDays = (props) => {
                 Local Time: {formatTime(props.location.current.dt + props.location.timezone_offset).slice(-13, -8)} 
             </h2>
             <div className="card-container">
-                {DisplayCurrent(props.location.current)}
+                <DisplayCurrent currentDay={props.location.current} />
+                {/* // {DisplayCurrent(props.location.current)} */}
                 {DisplayDay(props.location.daily)}
             </div>
         </div>

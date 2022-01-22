@@ -28,10 +28,10 @@
 .card-container{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2vw;
-  padding-top: 5vh;
 }
 
 .card {
@@ -45,8 +45,10 @@
   font-weight: bold;
 }
 
-#current-card {
-}
+/* .current-card { */
+  /* flex-grow: 2;
+  width: 100vw;
+} */
 
 .locationBanner {
   width: 100vw;
