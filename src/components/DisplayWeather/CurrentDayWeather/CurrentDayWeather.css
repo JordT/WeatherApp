@@ -18,12 +18,16 @@
   border-radius: 8px;
   text-align: left;
   padding: 5px 25px 5px 25px;
+  height: 20%;
 }
 
 /* Current weather card... box 1 */
 .current-weather {
   width:20%;
+}
 
+.current-weather1 {
+  width:25%;
 }
 
 .current-temperature {
@@ -56,4 +60,6 @@ p {
 
 .weather-icon{
   padding-left: 10%;
+  height: 100px;
+  width: 100px;
 }

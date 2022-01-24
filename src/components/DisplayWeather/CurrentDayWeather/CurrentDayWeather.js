@@ -5,13 +5,13 @@ const DisplayCurrent = (props) => {
     return (
         <div className="current-weather-card">
             <div key='current' id="current-card" className="current-card">
-                    <div className="current-weather">
-                        <h3 className="p1">Current Weather</h3><br/>
+                    <div className="current-weather1">
+                        <h3 className="p1">Current Weather</h3>
                         <img
                             className="weather-icon" 
                             src={`http://openweathermap.org/img/wn/${props.currentDay.weather[0].icon}@2x.png`}                   
                             alt="new"
-                        /><br/>
+                        />
                         <p className="p1">{props.currentDay.weather[0].description}</p><br/>
                     </div>
                     <div className="current-weather">
