@@ -1,22 +1,20 @@
 import '../../../App.css'
-import '../../formatTime/formatTime'
-import formatTime from '../../formatTime/formatTime'
 import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather'
+const { DateTime } = require("luxon");
 
 const NextFiveDays = (props) => {
 
-
-    
     const DisplayDay = (weather) => {
 
         const displayDays = []
-        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
         weather.map((d, i) => {
 
+            let currentDay = DateTime.fromSeconds(d.dt).setZone(d.timezone).toFormat('cccc')
+
             displayDays.push(
                 <div key={i} className="card">
-                    <p1 className="day-name">{days[new Date(formatTime(d.dt)).getDay()]}</p1><br/>
+                    <p1 className="day-name">{currentDay}</p1><br/>
                     <p1>{d.weather[0].description}</p1><br/>
                     <img
                     className="weather-icon" 
@@ -33,7 +31,7 @@ const NextFiveDays = (props) => {
 
     return (
         <div> 
-            <h1 className="locationBanner"> The local time in {props.displayLocation} is {formatTime(props.location.current.dt + props.location.timezone_offset).slice(-13, -8)} </h1>
+            <h1 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h1>
             <div className="card-container">
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 {DisplayDay(props.location.daily)}
