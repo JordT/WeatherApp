@@ -21,7 +21,8 @@
 }
 
 /* Current weather card... box 1 */
-.current-weather{ 
+.current-weather {
+  width:20%;
 
 }
 
@@ -33,5 +34,26 @@
 }
 
 .weather-by-hour {
-  background-color: red;
+  /* background-color: red; */
+  color: black;
+}
+
+H3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.p1 {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.weather-icon{
+  padding-left: 10%;
 }

@@ -37,7 +37,7 @@ const NextFiveDays = (props) => {
                 Local Time: {formatTime(props.location.current.dt + props.location.timezone_offset).slice(-13, -8)} 
             </h2>
             <div className="card-container">
-                <DisplayCurrent currentDay={props.location.current} />
+                <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 {/* // {DisplayCurrent(props.location.current)} */}
                 {DisplayDay(props.location.daily)}
             </div>
