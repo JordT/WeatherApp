@@ -28,6 +28,7 @@
 
 .current-weather1 {
   width:25%;
+  padding-top: 10px;
 }
 
 .current-temperature {
@@ -59,7 +60,10 @@ p {
 }
 
 .weather-icon{
-  padding-left: 10%;
   height: 100px;
   width: 100px;
+}
+
+#current-weather-icon {
+  padding-left: 25%;
 }
