@@ -67,8 +67,8 @@ switch(sunPos) {
 
 return (
       <div className="sun-pos-container">
-        <div className="suntime" id="sunrise-time">{sunrise.toFormat('HH:MM')} </div>
-        <div className="suntime" id="sunset-time">{sunset.toFormat('HH:MM')} </div>                
+        <div className="suntime" id="sunrise-time">{sunrise.toFormat('HH:mm')} </div>
+        <div className="suntime" id="sunset-time">{sunset.toFormat('HH:mm')} </div>                
         <div className="arc">
           <div className="sun-container"
             style={{
