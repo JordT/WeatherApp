@@ -8,7 +8,8 @@ const DisplayCurrent = (props) => {
                     <div className="current-weather1">
                         <h3 className="p1">Current Weather</h3>
                         <img
-                            className="weather-icon" 
+                            className="weather-icon"
+                            id="current-weather-icon" 
                             src={`http://openweathermap.org/img/wn/${props.currentDay.weather[0].icon}@2x.png`}                   
                             alt="new"
                         />
