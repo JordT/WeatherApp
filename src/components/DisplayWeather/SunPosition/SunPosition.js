@@ -67,14 +67,16 @@ switch(sunPos) {
 
 return (
       <div className="sun-pos-container">
-         <div className="arc">
-           <div className="sun-container"
+        <div className="suntime" id="sunrise-time">{sunrise.toFormat('HH:MM')} </div>
+        <div className="suntime" id="sunset-time">{sunset.toFormat('HH:MM')} </div>                
+        <div className="arc">
+          <div className="sun-container"
             style={{
               left: `${leftPos}%`, // change these to move sun pos
               top: `${topPos}%`  // change these to move sun pos
               }}>
               <div className="sun"></div> 
-           </div>
+          </div>
         </div>
       </div>
 
