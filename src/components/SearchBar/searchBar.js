@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 const SearchBar = ({onSearch, formattedLocation}) => {
 
     const [location, setLocation] = useState('Monaco')
-    
+    const [suggestedLocations, setSuggestedLocations] = useState(['none'])
     // Loads Monaco weather on page load.
     useEffect(() => {
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=43.7384&lon=7.4246&exclude=hourly,minutely&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
@@ -53,6 +53,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                 <input type="text" placeholder="Enter a city..." id="input-search"
                     onChange={(l) => setLocation(l.target.value)} value={location}>
                 </input>
+                <h3>Suggested locations: {suggestedLocations}</h3>
             </form>
         </div>
     )
