@@ -14,15 +14,15 @@ const NextFiveDays = (props) => {
 
             displayDays.push(
                 <div key={i} className="card">
-                    <p1 className="day-name">{currentDay}</p1><br/>
-                    <p1>{d.weather[0].description}</p1><br/>
+                    <p className="forecast-card-text" id="bold">{currentDay}</p>
+                    <p className="forecast-card-text">{d.weather[0].description}</p>
                     <img
                     className="weather-icon" 
                     src={`http://openweathermap.org/img/wn/${d.weather[0].icon}@2x.png`}                   
                     alt="new"
-                    /><br/>
-                    <p1>High: {d.temp.max.toFixed(0)}C</p1><br/>
-                    <p1>Low: {d.temp.min.toFixed(0)}C</p1>
+                    />
+                    <p className="forecast-card-text">High: {d.temp.max.toFixed(0)}C</p>
+                    <p className="forecast-card-text">Low: {d.temp.min.toFixed(0)}C</p>
                 </div>
             )
         })
