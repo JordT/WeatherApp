@@ -9,7 +9,7 @@ import cities from 'cities.json';
 const SearchBar = ({onSearch, formattedLocation}) => {
 
     const [location, setLocation] = useState('Monaco')
-    // const [suggestedLocations, setSuggestedLocations] = useState(['none'])
+    const [suggestedLocations, setSuggestedLocations] = useState([cities[1000].name])
     
     // Loads Monaco weather on page load.
     useEffect(() => {
@@ -32,7 +32,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
        formattedLocation(res)
     }, [formattedLocation])
 
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -53,32 +53,39 @@ const SearchBar = ({onSearch, formattedLocation}) => {
         })       
     }
 
-    const [suggestedLocations, setSuggestedLocations] = useState(['Monaco'])
-    const handleSearch = () =>{
-        const display = []
-        const counter = 1
-        for(let i = 0; i < cities.length; i++){
-            let y = cities[i]
-            // .substring(0,location.length)
-            if (counter <= 3 && y === location){
-                display.push(cities.name);
-                counter++;
-            } 
+    const setSuggestions = (l) => {
+        // match incoming "l" to first 3 matching suggestions found in JSON
+        let suggestions = []
+        for (let j = 0; j < cities.length; j++){
+            let x = cities[j].name
+            let minSlice;
+            if (l.length < 3) {
+                minSlice = 3
+             } else {
+                minSlice = l.length;
+             } 
+
+            if (x.slice(0, minSlice) === l) {
+                suggestions.push(cities[j].name)
+            }
+
         }
-        return setSuggestedLocations(display)
+        setSuggestedLocations(suggestions.splice(0,5))
     }
+    
 
     return (
         <div className="App-header">
             <form onSubmit={handleSubmit}> 
-                <input type="text" placeholder="Enter a city..." id="input-search"
-                    onChange={(l) => 
-                        setLocation(l.target.value),
-                        handleSearch()
-                        } value={location}>
+                <input type="text" 
+                    placeholder="Enter a city..." 
+                    id="input-search"
+                    value={location}
+                    onChange={(l) => {setLocation(l.target.value); setSuggestions(l.target.value)}}
+                    >
                 </input>
-                <h3>Suggested locations: {suggestedLocations}</h3>
-                <h3>Test Json: {handleSearch}</h3>
+                <h3>Location: {location}</h3>
+                <h3>Suggestions from Json: {suggestedLocations}</h3>
             </form>
         </div>
     )
