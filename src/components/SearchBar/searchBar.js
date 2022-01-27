@@ -64,13 +64,16 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                 minSlice = l.length;
             } 
 
-            if (x.slice(0, minSlice) === l) {
+            if (x.slice(0, minSlice).toLowerCase() === l.toLowerCase()) {
                 suggestions.push([cities[j].name, ' ' + cities[j].country])
             }
         }
         setSuggestedLocations(suggestions.splice(0,5))
 
+    }
 
+    const listOfLocations = () => {
+        return suggestedLocations.map((x) => <option value={x} />)
     }
 
     return (
@@ -85,11 +88,12 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                     >
                 </input>
                 <datalist id="suggestedLocations">  
-                    <option value={suggestedLocations[0]}/>
+                    {/* <option value={suggestedLocations[0]}/>
                     <option value={suggestedLocations[1]}/>
                     <option value={suggestedLocations[2]}/>
                     <option value={suggestedLocations[3]}/>
-                    <option value={suggestedLocations[4]}/>
+                    <option value={suggestedLocations[4]}/> */}
+                    {listOfLocations}
                 </datalist>
                 <h3>Location: {location}</h3>
                 <h3>Suggestions from Json: {suggestedLocations}</h3>
