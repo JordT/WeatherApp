@@ -65,7 +65,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
             } 
 
             if (x.slice(0, minSlice) === l) {
-                suggestions.push(cities[j].name)
+                suggestions.push([cities[j].name, ', ' + cities[j].country])
             }
         }
         setSuggestedLocations(suggestions.splice(0,5))
