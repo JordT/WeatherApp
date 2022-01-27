@@ -64,13 +64,13 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                 minSlice = l.length;
             } 
 
-            let locationValue = [cities[j].name, ' ' + cities[j].country]
-
-            if (x.slice(0, minSlice).toLowerCase() === l.toLowerCase() & !suggestions.includes(locationValue)) {
-                suggestions.push(locationValue)
+            if (x.slice(0, minSlice).toLowerCase() === l.toLowerCase()) {
+                suggestions.push(cities[j].name +  ', ' + cities[j].country)
             }
         }
-        setSuggestedLocations(suggestions.splice(0,5))
+
+        setSuggestedLocations([...new Set(suggestions)].splice(0,5))
+        
     }
 
     return (
@@ -85,7 +85,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                     >
                 </input>
                 <datalist id="suggestedLocations">  
-                    {suggestedLocations.map(x=><option value={x}/>)}                    
+                    {suggestedLocations.map(x=><option value={x}/>)}                  
                 </datalist>
             </form>
         </div>
