@@ -54,23 +54,23 @@ const SearchBar = ({onSearch, formattedLocation}) => {
     }
 
     const setSuggestions = (l) => {
-        // match incoming "l" to first 3 matching suggestions found in JSON
         let suggestions = []
         for (let j = 0; j < cities.length; j++){
             let x = cities[j].name
             let minSlice;
             if (l.length < 3) {
                 minSlice = 3
-             } else {
+            } else {
                 minSlice = l.length;
-             } 
+            } 
 
             if (x.slice(0, minSlice) === l) {
                 suggestions.push(cities[j].name)
             }
-
         }
         setSuggestedLocations(suggestions.splice(0,5))
+
+
     }
     
 
