@@ -82,6 +82,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                     id="input-search"
                     value={location}
                     onChange={(l) => {setLocation(l.target.value); setSuggestions(l.target.value)}}
+                    autoComplete="off"
                     >
                 </input>
                 <datalist id="suggestedLocations">  
