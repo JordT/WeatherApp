@@ -20,7 +20,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   gap: 2vw;
 }
 
@@ -29,6 +29,7 @@
   border-radius: 8px;
   text-align: center;
   padding: 10px 25px 10px 25px;
+  flex: 150px;
 }
 
 .locationBanner {
