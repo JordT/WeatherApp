@@ -1,13 +1,8 @@
-.current-weather-card {
+.current-weather-container {
     flex-grow: 2;
     width: 60vw;
-    padding-left: 20vw;
-    padding-right: 20vw;
-}
-
-.current-weather-container {
-  display: flex;
-  flex-direction: row;
+    margin-left: 20vw;
+    margin-right: 20vw;
 }
 
 /* flexbox that should be rows */
@@ -18,6 +13,7 @@
   border-radius: 8px;
   text-align: left;
   padding: 5px 25px 5px 25px;
+  gap: 1vw;
 }
 
 /* Current weather card... box 1 */

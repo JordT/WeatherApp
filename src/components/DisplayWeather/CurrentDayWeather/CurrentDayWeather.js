@@ -3,7 +3,7 @@ import './CurrentDayWeather.css'
 const DisplayCurrent = (props) => {
 
     return (
-        <div className="current-weather-card">
+        <div className="current-weather-container">
             <div key='current' className="current-card">
                     <div className="current-weather1">
                         <h3 className="current-heading">Current Weather</h3>
