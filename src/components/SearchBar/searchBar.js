@@ -1,9 +1,15 @@
+// https://github.com/lutangar/cities.json
+
+//https://stackoverflow.com/questions/53498663/displaying-data-from-json-as-suggestions-under-a-searchbar-in-reactjs
+
 import axios from 'axios';
 import { useState, useCallback, useEffect } from 'react';
+import cities from 'cities.json';
 
 const SearchBar = ({onSearch, formattedLocation}) => {
 
     const [location, setLocation] = useState('Monaco')
+    const [suggestedLocations, setSuggestedLocations] = useState([cities[1000].name])
     
     // Loads Monaco weather on page load.
     useEffect(() => {
@@ -26,7 +32,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
        formattedLocation(res)
     }, [formattedLocation])
 
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -47,12 +53,39 @@ const SearchBar = ({onSearch, formattedLocation}) => {
         })       
     }
 
+    const setSuggestions = (l) => {
+        let suggestions = []
+        for (let j = 0; j < cities.length; j++){
+            let x = cities[j].name
+            let minSlice;
+            if (l.length < 3) {
+                minSlice = 3
+            } else {
+                minSlice = l.length;
+            } 
+
+            if (x.slice(0, minSlice) === l) {
+                suggestions.push(cities[j].name)
+            }
+        }
+        setSuggestedLocations(suggestions.splice(0,5))
+
+
+    }
+    
+
     return (
         <div className="App-header">
             <form onSubmit={handleSubmit}> 
-                <input type="text" placeholder="Enter a city..." id="input-search"
-                    onChange={(l) => setLocation(l.target.value)} value={location}>
+                <input type="text" 
+                    placeholder="Enter a city..." 
+                    id="input-search"
+                    value={location}
+                    onChange={(l) => {setLocation(l.target.value); setSuggestions(l.target.value)}}
+                    >
                 </input>
+                <h3>Location: {location}</h3>
+                <h3>Suggestions from Json: {suggestedLocations}</h3>
             </form>
         </div>
     )
