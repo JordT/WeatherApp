@@ -4,12 +4,11 @@ const DisplayCurrent = (props) => {
 
     return (
         <div className="current-weather-card">
-            <div key='current' id="current-card" className="current-card">
+            <div key='current' className="current-card">
                     <div className="current-weather1">
                         <h3 className="current-heading">Current Weather</h3>
                         <img
                             className="weather-icon"
-                            id="current-weather-icon" 
                             src={`http://openweathermap.org/img/wn/${props.currentDay.weather[0].icon}@2x.png`}                   
                             alt="new"
                         />
