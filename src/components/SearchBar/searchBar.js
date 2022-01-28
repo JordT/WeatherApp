@@ -5,6 +5,7 @@
 import axios from 'axios';
 import { useState, useCallback, useEffect } from 'react';
 import cities from 'cities.json';
+import './searchBar.css'
 
 const SearchBar = ({onSearch, formattedLocation}) => {
 
