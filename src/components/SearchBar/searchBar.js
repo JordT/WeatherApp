@@ -64,28 +64,30 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                 minSlice = l.length;
             } 
 
-            if (x.slice(0, minSlice) === l) {
-                suggestions.push(cities[j].name)
+            if (x.slice(0, minSlice).toLowerCase() === l.toLowerCase()) {
+                suggestions.push(cities[j].name +  ', ' + cities[j].country)
             }
         }
-        setSuggestedLocations(suggestions.splice(0,5))
 
-
+        setSuggestedLocations([...new Set(suggestions)].splice(0,5))
+        
     }
-    
 
     return (
         <div className="App-header">
             <form onSubmit={handleSubmit}> 
-                <input type="text" 
+                <input 
+                    list="suggestedLocations"
                     placeholder="Enter a city..." 
                     id="input-search"
                     value={location}
                     onChange={(l) => {setLocation(l.target.value); setSuggestions(l.target.value)}}
+                    autoComplete="off"
                     >
                 </input>
-                <h3>Location: {location}</h3>
-                <h3>Suggestions from Json: {suggestedLocations}</h3>
+                <datalist id="suggestedLocations">  
+                    {suggestedLocations.map(x=><option value={x}/>)}                  
+                </datalist>
             </form>
         </div>
     )
