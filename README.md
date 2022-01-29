@@ -2,8 +2,7 @@
 ---
 # Current state of the app!
 
-<img width="1050" alt="image" src="https://user-images.githubusercontent.com/62376093/151069252-bc0f2acf-c256-442f-8b60-fb4f118eb293.png">
-
+![image](https://user-images.githubusercontent.com/18235528/151672668-ec18f7bc-5424-46a1-8134-8704ed01bca8.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
