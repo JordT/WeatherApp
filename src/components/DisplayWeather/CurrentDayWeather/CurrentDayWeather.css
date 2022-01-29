@@ -8,8 +8,7 @@
 /* flexbox that should be rows */
 .current-card {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   background-color: rgb(203, 201, 201);
   border-radius: 8px;
   padding: 0px 25px 0px 25px;
