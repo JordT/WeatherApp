@@ -1,26 +1,29 @@
 .sun-pos-container {
     width: 100vw;
     margin-top: auto;
-    height: 8vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     flex-direction: row;
-    padding-top: 50px;
-    gap: 250px;
+    /* padding-top: 50px; */
+    gap: 2vw;
+    margin-top: 25px;
 }
 
 .arc {
-    position: fixed;
-    left: 50%;
-    align-self: flex-start;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     height: 100px;
     width: 200px;
     border-radius: 300px 300px 0 0;
     border: 3px solid  rgb(206, 203, 203);;  
     border-bottom: none;
-    background-color: 0;    
+    background-color: 0; 
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+       
 }
 
 .sun-container {
@@ -41,7 +44,9 @@
 }
 
 #sunrise-time {
+    order: 1;
 }
 
 #sunset-time {
+    order: 3;
 }
