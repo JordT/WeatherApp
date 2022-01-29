@@ -5,6 +5,7 @@
 import axios from 'axios';
 import { useState, useCallback, useEffect } from 'react';
 import cities from 'cities.json';
+import './searchBar.css'
 
 const SearchBar = ({onSearch, formattedLocation}) => {
 
@@ -86,7 +87,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                     >
                 </input>
                 <datalist id="suggestedLocations">  
-                    {suggestedLocations.map(x=><option value={x}/>)}                  
+                    {suggestedLocations.map((x, i)=><option key={i} value={x}/>)}                  
                 </datalist>
             </form>
         </div>

@@ -12,26 +12,6 @@
   align-items: center;
   flex-direction: column;
   color: white;
-  padding: 10px;
-}
-
-#input-search {
-  border-radius: 10px;
-  border: 0;
-  height: 50px;
-  width: 600px;
-  margin: 20px 0px 0px 0px;
-  font-size: xx-large;
-  padding: 10px;
-}
-
-.card-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2vw;
 }
 
 .card {
@@ -39,6 +19,9 @@
   border-radius: 8px;
   text-align: center;
   padding: 10px 25px 10px 25px;
+  flex: 150px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .locationBanner {

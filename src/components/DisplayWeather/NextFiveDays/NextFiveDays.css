@@ -1,0 +1,15 @@
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.card-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
