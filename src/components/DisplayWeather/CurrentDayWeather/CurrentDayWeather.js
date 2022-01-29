@@ -20,12 +20,13 @@ const DisplayCurrent = (props) => {
                             <p>Feels like</p>
                             <h3>{props.currentDay.feels_like.toFixed(0)}C</h3>
                     </div>
-                    <div className="current-weather">
+                    {/* Boxing this div for now since its already there in the forecast.*/}
+                    {/* <div className="current-weather">
                             <p>Max</p>
                             <h3>{props.currentWeather.temp.max.toFixed(0)}C</h3>
                             <p>Min</p>
                             <h3>{props.currentWeather.temp.min.toFixed(0)}C</h3>
-                    </div>
+                    </div> */}
                     <div className="current-weather">
                             <p>Windspeed</p>
                             <h3>{props.currentWeather.wind_speed.toFixed(0)}mph</h3>

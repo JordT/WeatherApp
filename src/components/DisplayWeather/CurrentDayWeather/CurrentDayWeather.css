@@ -9,6 +9,7 @@
 .current-card {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   background-color: rgb(203, 201, 201);
   border-radius: 8px;
   text-align: left;
@@ -19,6 +20,7 @@
 /* Current weather card... box 1 */
 .current-weather {
   width: 20%;
+  flex: 100px;
 }
 
 .current-weather1 {
@@ -27,6 +29,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex:100px;
+
 }
 
 .current-temperature {
