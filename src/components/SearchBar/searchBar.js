@@ -87,7 +87,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                     >
                 </input>
                 <datalist id="suggestedLocations">  
-                    {suggestedLocations.map(x=><option value={x}/>)}                  
+                    {suggestedLocations.map((x, i)=><option key={i} value={x}/>)}                  
                 </datalist>
             </form>
         </div>

@@ -32,7 +32,7 @@ const NextFiveDays = (props) => {
 
     return (
         <div> 
-            <h1 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h1>
+            <h2 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h2>
             <div className="weather-container">
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 <div className="card-container">

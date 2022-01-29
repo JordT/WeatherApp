@@ -12,32 +12,25 @@
   flex-wrap: wrap;
   background-color: rgb(203, 201, 201);
   border-radius: 8px;
-  text-align: left;
-  padding: 5px 25px 5px 25px;
+  padding: 0px 25px 0px 25px;
   gap: 1vw;
 }
 
 /* Current weather card... box 1 */
 .current-weather {
-  width: 20%;
-  flex: 100px;
+  width: 25%;
+  flex: 150px;
 }
 
 .current-weather1 {
-  width: 20%;
-  padding-top: 10px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex:100px;
+  justify-content: center;
+  flex:150px;
+  margin-top: 20px;
 
-}
-
-.current-temperature {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-  text-align: center;
-  align-self: center;
 }
 
 .weather-by-hour {
@@ -56,11 +49,17 @@ p {
 
 .current-heading {
   text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .weather-icon{
   height: auto;
   max-width: 60%;
+}
+
+.measurementTitle {
+  font-weight: bolder;
+}
+
+.measurementValue {
+  font-size: x-large;
 }
