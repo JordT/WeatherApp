@@ -7,10 +7,14 @@ import { useState, useCallback, useEffect } from 'react';
 import cities from 'cities.json';
 import './searchBar.css'
 
-const SearchBar = ({onSearch, formattedLocation}) => {
+type Props = {
+    onSearch: any,
+    formattedLocation: any,
+}
+const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
-    const [location, setLocation] = useState('Monaco')
-    const [suggestedLocations, setSuggestedLocations] = useState([cities[1000].name])
+    const [location, setLocation] = useState<string>('Monaco')
+    const [suggestedLocations, setSuggestedLocations] = useState<string[]>([cities[1000].name])
     
     // Loads Monaco weather on page load.
     useEffect(() => {
@@ -34,7 +38,7 @@ const SearchBar = ({onSearch, formattedLocation}) => {
     }, [formattedLocation])
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         // Calling the GCP geocoding API to get lat/lon values.
@@ -49,23 +53,23 @@ const SearchBar = ({onSearch, formattedLocation}) => {
                 handleUpdate(res.data)
             }) 
             .catch((err) => {
-                console.err(err);
+                console.log(err);
             });
         })       
     }
 
-    const setSuggestions = (l) => {
+    const setSuggestions = (loc: string) => {
         let suggestions = []
         for (let j = 0; j < cities.length; j++){
             let x = cities[j].name
             let minSlice;
-            if (l.length < 3) {
+            if (loc.length < 3) {
                 minSlice = 3
             } else {
-                minSlice = l.length;
+                minSlice = loc.length;
             } 
 
-            if (x.slice(0, minSlice).toLowerCase() === l.toLowerCase()) {
+            if (x.slice(0, minSlice).toLowerCase() === loc.toLowerCase()) {
                 suggestions.push(cities[j].name +  ', ' + cities[j].country)
             }
         }
