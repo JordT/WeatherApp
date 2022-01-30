@@ -59,10 +59,10 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
     }
 
     const setSuggestions = (loc: string) => {
-        let suggestions = []
+        let suggestions: string[] = []
         for (let j = 0; j < cities.length; j++){
             let x = cities[j].name
-            let minSlice;
+            let minSlice: number;
             if (loc.length < 3) {
                 minSlice = 3
             } else {
