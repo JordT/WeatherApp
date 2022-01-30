@@ -1,17 +1,22 @@
 import '../../../App.css'
 import './NextFiveDays.css'
-import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather'
+const DisplayCurrent = require('../CurrentDayWeather/CurrentDayWeather') 
 const { DateTime } = require("luxon");
 
-const NextFiveDays = (props) => {
+type Props = {
+    location: any,
+    displayLocation: string,
+}
 
-    const DisplayDay = (weather) => {
+const NextFiveDays = (props: Props): JSX.Element => {
 
-        const displayDays = []
+    const DisplayDay = (weather: any): JSX.Element[] => {
 
-        weather.map((d, i) => {
+        const displayDays: JSX.Element[] = []
 
-            let currentDay = DateTime.fromSeconds(d.dt).setZone(d.timezone).toFormat('cccc')
+        weather.map((d: any, i: number) => {
+
+            let currentDay: Date = DateTime.fromSeconds(d.dt).setZone(d.timezone).toFormat('cccc')
 
             displayDays.push(
                 <div key={i} className="card">
