@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import NextFiveDays from './components/DisplayWeather/NextFiveDays/NextFiveDays';
-import SearchBar from './components/SearchBar/searchBar.tsx';
+import SearchBar from './components/SearchBar/searchBar';
 import defaultweather from './exampleData.json';
 import SunPosition from './components/DisplayWeather/SunPosition/SunPosition'
 

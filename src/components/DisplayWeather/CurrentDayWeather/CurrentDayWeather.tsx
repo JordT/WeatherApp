@@ -5,7 +5,7 @@ type Props = {
     currentWeather: any,
 }
 
-const DisplayCurrent = (props: Props): JSX.Element => {
+const DisplayCurrent = (props: Props)=> {
 
     return (
         <div className="current-weather-container">

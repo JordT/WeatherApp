@@ -1,6 +1,6 @@
 import '../../../App.css'
 import './NextFiveDays.css'
-const DisplayCurrent = require('../CurrentDayWeather/CurrentDayWeather') 
+import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather';
 const { DateTime } = require("luxon");
 
 type Props = {
