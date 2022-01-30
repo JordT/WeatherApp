@@ -1,6 +1,11 @@
 import './CurrentDayWeather.css'
 
-const DisplayCurrent = (props) => {
+type Props = {
+    currentDay: any,
+    currentWeather: any,
+}
+
+const DisplayCurrent = (props: Props)=> {
 
     return (
         <div className="current-weather-container">
