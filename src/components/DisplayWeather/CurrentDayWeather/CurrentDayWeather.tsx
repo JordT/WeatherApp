@@ -15,7 +15,7 @@ const DisplayCurrent = (props: Props)=> {
                         <img
                             className="weather-icon"
                             src={`http://openweathermap.org/img/wn/${props.currentDay.weather[0].icon}@2x.png`}                   
-                            alt="new"
+                            alt="current-weather-icon"
                         />
                         <p className="current-heading">{props.currentDay.weather[0].description}</p><br/>
                     </div>
@@ -33,9 +33,9 @@ const DisplayCurrent = (props: Props)=> {
                             <h3>{props.currentWeather.temp.min.toFixed(0)}C</h3>
                     </div> */}
                     <div className="current-weather">
-                            <p className="measurementTitle">Windspeed</p>
+                            <p className="measurementTitle">Wind speed</p>
                             <p className="measurementValue">{props.currentWeather.wind_speed.toFixed(0)}mph</p>
-                            <p className="measurementTitle">Windspeed</p>
+                            <p className="measurementTitle">Wind gust</p>
                             <p className="measurementValue">{props.currentWeather.wind_gust.toFixed(0)}mph</p>
                     </div>
                     <div className="current-weather">
