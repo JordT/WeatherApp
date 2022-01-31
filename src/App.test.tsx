@@ -36,5 +36,18 @@ describe('App tests', () => {
     
   })
 
+  test('weather forecast component', () => {
+    expect(screen.getByText(/Tuesday/)).toBeInTheDocument();
+    expect(screen.getByText(/Wednesday/)).toBeInTheDocument();
+    expect(screen.getByText(/Thursday/)).toBeInTheDocument();
+    expect(screen.getByText(/Friday/)).toBeInTheDocument();
+    expect(screen.getByText(/Saturday/)).toBeInTheDocument();
+
+  })
+
+  test('sun dial component', () => {
+    expect(screen.getByText(/07:59/)).toBeInTheDocument();
+    expect(screen.getByText(/17:21/)).toBeInTheDocument();
+  })
   
 })
