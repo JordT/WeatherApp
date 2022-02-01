@@ -2,7 +2,7 @@ import './SunPosition.css'
 
   //TODO - JSON response coming in with nested data needs a type... 
   const SunPosition = (props: any) => {
-
+  
   const { DateTime } = require("luxon");
 
   const sunrise = DateTime.fromSeconds(props.sunData.sunrise).setZone(props.timeZone)
@@ -14,6 +14,7 @@ import './SunPosition.css'
   const hoursOfLight = sunset.hour - sunrise.hour
   const currentTime = currentDT.hour - sunrise.hour
   const sunPos = ((currentTime / hoursOfLight) * 10).toFixed(0)
+
 
   // define 9 positions
   let leftPos: number = 0; 

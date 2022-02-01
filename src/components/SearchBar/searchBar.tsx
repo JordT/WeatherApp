@@ -11,6 +11,7 @@ type Props = {
     onSearch: any,
     formattedLocation: any,
 }
+
 const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
     const [location, setLocation] = useState<string>('Monaco')

@@ -4,7 +4,7 @@ import NextFiveDays from './components/DisplayWeather/NextFiveDays/NextFiveDays'
 import SearchBar from './components/SearchBar/searchBar';
 import defaultweather from './exampleData.json';
 import SunPosition from './components/DisplayWeather/SunPosition/SunPosition'
-
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.js'
 
 // const { DateTime } = require("luxon");
 
@@ -19,7 +19,9 @@ function App() {
     <div className="App">
         <SearchBar onSearch={setWeatherInfo} formattedLocation={setDisplayLocation}/>
         <NextFiveDays location={weatherInfo} displayLocation={displayLocation}/>
-        <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone} />
+        <ErrorBoundary>
+          <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone} />
+        </ErrorBoundary>
     </div>
   );
 }
