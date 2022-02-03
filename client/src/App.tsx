@@ -14,7 +14,7 @@ function App() {
   // We manage state here as we'll get it in SearchBar
   const [weatherInfo, setWeatherInfo] = useState(defaultweather)
   const [displayLocation, setDisplayLocation] = useState('Monaco')
-  const [isDay, setIsDay] = useState<boolean>(false);
+  const [isDay, setIsDay] = useState<boolean>(true);
 
   return (
     <div className="App" id={isDay ? "app-day" : "app-night"}>

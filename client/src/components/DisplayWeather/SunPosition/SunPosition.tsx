@@ -1,8 +1,12 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import './SunPosition.css'
 
   //TODO - JSON response coming in with nested data needs a type... 
   const SunPosition = (props: any) => {
+
+    const setDay = useCallback((x: boolean) => {
+      props.isDay(x)
+    }, [props.isDay])
   
   const { DateTime } = require("luxon");
   
@@ -62,6 +66,7 @@ import './SunPosition.css'
 
     default:
       sunUp = false;
+      setDay(false);
       break;
   }
 
