@@ -29,12 +29,16 @@
 .sun-container {
     position: absolute;
 }
-.sun {
+.sun-up {
     /* shape */
     height: 30px;
     width: 30px;
     background-color: rgb(248, 232, 2);
     border-radius: 50%;
+}
+
+.sun-down {
+    visibility: hidden;
 }
 
 .suntime {
