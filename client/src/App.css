@@ -4,7 +4,9 @@
   text-align: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: rgb(30, 104, 133);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-header {
@@ -47,12 +49,10 @@
 
 #app-day {
   background-color: rgb(30, 104, 133);
+  background-image:url(https://wallpapercave.com/wp/wp2823618.jpg);
 }
 
 #app-night {
   background-color: rgb(12, 7, 43);
   background-image:url(https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
