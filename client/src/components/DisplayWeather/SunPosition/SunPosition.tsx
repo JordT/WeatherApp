@@ -1,25 +1,28 @@
+import { useState } from 'react'
 import './SunPosition.css'
 
   //TODO - JSON response coming in with nested data needs a type... 
   const SunPosition = (props: any) => {
-
+  
   const { DateTime } = require("luxon");
-
+  
+  if (props.sunData.sunrise) {
   const sunrise = DateTime.fromSeconds(props.sunData.sunrise).setZone(props.timeZone)
   const sunset = DateTime.fromSeconds(props.sunData.sunset).setZone(props.timeZone)
   const currentDT = DateTime.now().setZone(props.timeZone) // localtime
-
 
   // calculate sun position based on time since sunrise...
   const hoursOfLight = sunset.hour - sunrise.hour
   const currentTime = currentDT.hour - sunrise.hour
   const sunPos = ((currentTime / hoursOfLight) * 10).toFixed(0)
+  
 
   // define 9 positions
   let leftPos: number = 0; 
   let topPos: number  = 0;
+  let sunUp:boolean = true;
+  
   switch(sunPos) {
-
     case '1':
       leftPos = -7.5;
       topPos = 80;
@@ -58,27 +61,34 @@ import './SunPosition.css'
       break;
 
     default:
-      leftPos = 10000
-      topPos = 10000;
+      sunUp = false;
       break;
   }
 
-return (
-      <div className="sun-pos-container">
-        <div className="suntime" id="sunrise-time">{sunrise.toFormat('HH:mm')} </div>
-        <div className="suntime" id="sunset-time">{sunset.toFormat('HH:mm')} </div>                
-        <div className="arc">
-          <div className="sun-container"
-            style={{
-              left: `${leftPos}%`, // change these to move sun pos
-              top: `${topPos}%`  // change these to move sun pos
-              }}>
-              <div className="sun"></div> 
+    return (
+        <div className="sun-pos-container">
+          <div className="suntime" id="sunrise-time">{sunrise.toFormat('HH:mm')} </div>
+          <div className="suntime" id="sunset-time">{sunset.toFormat('HH:mm')} </div>                
+          <div className="arc">
+            <div className="sun-container"
+              style={{
+                left: `${leftPos}%`, // change these to move sun pos
+                top: `${topPos}%`  // change these to move sun pos
+                }}>
+                <div className={sunUp ? "sun-up" : "sun-set"}></div> 
+            </div>
           </div>
         </div>
+      )
+  } else {
+    return (
+      <div className="sun-pos-container">
+        <p style={{
+          color: 'white'
+        }}>Woops, we don't have the data! Panik!</p>
       </div>
-
-  )
+    )
+  }
 }
 
 export default SunPosition;
