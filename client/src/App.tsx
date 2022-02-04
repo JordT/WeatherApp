@@ -14,13 +14,14 @@ function App() {
   // We manage state here as we'll get it in SearchBar
   const [weatherInfo, setWeatherInfo] = useState(defaultweather)
   const [displayLocation, setDisplayLocation] = useState('Monaco')
+  const [isDay, setIsDay] = useState<boolean>(true);
 
   return (
-    <div className="App">
+    <div className="App" id={isDay ? "app-day" : "app-night"}>
         <ErrorBoundary>
           <SearchBar onSearch={setWeatherInfo} formattedLocation={setDisplayLocation}/>
           <NextFiveDays location={weatherInfo} displayLocation={displayLocation}/>
-          <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone} />
+          <SunPosition sunData={weatherInfo.current} timeZone={weatherInfo.timezone} isDay={setIsDay} />
         </ErrorBoundary>
     </div>
   );

@@ -1,8 +1,12 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import './SunPosition.css'
 
   //TODO - JSON response coming in with nested data needs a type... 
   const SunPosition = (props: any) => {
+
+    const setDay = useCallback((x: boolean) => {
+      props.isDay(x)
+    }, [props.isDay])
   
   const { DateTime } = require("luxon");
   
@@ -21,40 +25,49 @@ import './SunPosition.css'
   let leftPos: number = 0; 
   let topPos: number  = 0;
   let sunUp:boolean = true;
-  
+  setDay(true);
+
   switch(sunPos) {
     case '1':
       leftPos = -7.5;
       topPos = 80;
       break;
+
     case '2':
       leftPos = -6;
       topPos = 60;
       break;
+
     case '3':
       leftPos = 5;
       topPos = 20;
       break;
+
     case '4':
       leftPos = 20;
       topPos = -5;
       break;
+
     case '5':
       leftPos = 44;
       topPos = -15;
       break;
+
     case '6':
       leftPos = 64;
       topPos = -5;
       break;
+
     case '7':
       leftPos = 80;
       topPos = 20;
       break;
+
     case '8':
       leftPos = 91;
       topPos = 60;
       break;
+      
     case '9':
       leftPos = 93;
       topPos = 80;
@@ -62,6 +75,7 @@ import './SunPosition.css'
 
     default:
       sunUp = false;
+      setDay(false);
       break;
   }
 
