@@ -25,52 +25,52 @@ import './SunPosition.css'
   let leftPos: number = 0; 
   let topPos: number  = 0;
   let sunUp:boolean = true;
-  
+  setDay(true);
+
   switch(sunPos) {
     case '1':
       leftPos = -7.5;
       topPos = 80;
-      setDay(true);
       break;
+
     case '2':
       leftPos = -6;
       topPos = 60;
-      setDay(true);
       break;
+
     case '3':
       leftPos = 5;
       topPos = 20;
-      setDay(true);
       break;
+
     case '4':
       leftPos = 20;
       topPos = -5;
-      setDay(true);
       break;
+
     case '5':
       leftPos = 44;
       topPos = -15;
-      setDay(true);
       break;
+
     case '6':
       leftPos = 64;
       topPos = -5;
-      setDay(true);
       break;
+
     case '7':
       leftPos = 80;
       topPos = 20;
-      setDay(true);
       break;
+
     case '8':
       leftPos = 91;
       topPos = 60;
-      setDay(true);
       break;
+      
     case '9':
       leftPos = 93;
       topPos = 80;
-      setDay(true);
       break;
 
     default:
