@@ -2,7 +2,7 @@
 ---
 # Current state of the app!
 
-![image](https://user-images.githubusercontent.com/18235528/151672668-ec18f7bc-5424-46a1-8134-8704ed01bca8.png)
+![weather-app-readme](https://user-images.githubusercontent.com/18235528/152569157-6ed0fb84-02cc-48f4-8935-0c23eab55245.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
