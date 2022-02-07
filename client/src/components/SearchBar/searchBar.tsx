@@ -42,7 +42,7 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
         axios.get(`http://localhost:4000/api/weather/${location}`)
         .then(res => {
             handleUpdate(res.data)
-            setDisplayLocation(res.data.timezone)
+            setDisplayLocation(res.data.location)
             console.log(res)
         })    
     }
