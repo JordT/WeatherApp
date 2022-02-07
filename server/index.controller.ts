@@ -1,5 +1,6 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import axios from "axios";
+import { json } from "stream/consumers";
 
 require('dotenv').config()
 
@@ -16,7 +17,8 @@ const getWeatherData = (req: Request, res: Response) => {
     formattedAddress = r.data.results[0].formatted_address;
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${process.env.WEATHER_API_KEY}`)
     .then(r => {
-      res.status(200).json(r.data)
+      const weatherInfo = Object.assign(r.data , {location: formattedAddress})
+      res.status(200).json(weatherInfo)
     })
     .catch(err => {
       console.log(err)
