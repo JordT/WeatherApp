@@ -37,10 +37,10 @@ const NextFiveDays = (props: Props): JSX.Element => {
         return displayDays.splice(0,5)
     }
 
-    const DisplayAlert = (alerts: any) => {
+    const DisplayAlert = (alerts: any[]) => {
       const displayAlerts: JSX.Element[] = []
       
-      alerts.map((a: any, i: any) => {
+      alerts.map((a, i) => {
         displayAlerts.push(
             <div className="weather-alert-item" key={i} title={alerts[i].description}> <AiOutlineWarning />  {alerts[i].event}</div>
         )
@@ -53,6 +53,7 @@ const NextFiveDays = (props: Props): JSX.Element => {
             <h2 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h2>
             <div className="weather-container">
                 <div className="weather-alert-container">
+                    {/* Most locations have no weather warning. Trying to map an undefined object will brick the client.*/}
                     {(props.location.alerts !== undefined) ? DisplayAlert(props.location.alerts) : null}
                 </div>
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
