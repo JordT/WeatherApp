@@ -13,7 +13,7 @@ function App() {
   // const defaultweather = './defaultweather.json'
   // We manage state here as we'll get it in SearchBar
   const [weatherInfo, setWeatherInfo] = useState(defaultweather)
-  const [displayLocation, setDisplayLocation] = useState('Kansas')
+  const [displayLocation, setDisplayLocation] = useState('Monaco')
   const [isDay, setIsDay] = useState<boolean>(true);
 
   return (
