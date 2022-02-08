@@ -14,12 +14,12 @@ type Props = {
 
 const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
-    const [location, setLocation] = useState<string>('Monaco')
+    const [location, setLocation] = useState<string>('Kansas')
     const [suggestedLocations, setSuggestedLocations] = useState<string[]>([cities[1000].name])
     
     // Loads Monaco weather on page load.
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/weather/Monaco`)
+        axios.get(`http://localhost:4000/api/weather/Kansas`)
         .then(res => {
             handleUpdate(res.data)
             console.log(res)

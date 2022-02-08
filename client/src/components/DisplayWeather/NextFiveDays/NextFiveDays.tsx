@@ -6,7 +6,7 @@ const { DateTime } = require("luxon");
 
 type Props = {
     location: any,
-    displayLocation: string,
+    displayLocation: string
 }
 
 const NextFiveDays = (props: Props): JSX.Element => {
@@ -36,11 +36,24 @@ const NextFiveDays = (props: Props): JSX.Element => {
         return displayDays.splice(0,5)
     }
 
+    const DisplayAlert = (alerts: any) => {
+      const displayAlerts: JSX.Element[] = []
+      
+      alerts.map((a: any, i: any) => {
+        displayAlerts.push(
+            <div className="weather-alert-item" key={i}>{alerts[i].event}</div>
+        )
+      })
+      return displayAlerts 
+    }
+
     return (
         <div> 
             <h2 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h2>
             <div className="weather-container">
-                <WeatherAlert />
+                <div className="weather-alert-container">
+                    {(props.location.alerts !== undefined) ? DisplayAlert(props.location.alerts) : null}
+                </div>
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 <div className="card-container">
                     {DisplayDay(props.location.daily)}
