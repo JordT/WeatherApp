@@ -1,6 +1,7 @@
 import '../../../App.css'
 import './NextFiveDays.css'
 import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather';
+import WeatherAlert from '../WeatherAlert/WeatherAlert';
 const { DateTime } = require("luxon");
 
 type Props = {
@@ -39,6 +40,7 @@ const NextFiveDays = (props: Props): JSX.Element => {
         <div> 
             <h2 className="locationBanner"> The local time in {props.displayLocation} is {DateTime.fromSeconds(props.location.current.dt).setZone(props.location.timezone).toFormat('h:mm a')} </h2>
             <div className="weather-container">
+                <WeatherAlert />
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 <div className="card-container">
                     {DisplayDay(props.location.daily)}
