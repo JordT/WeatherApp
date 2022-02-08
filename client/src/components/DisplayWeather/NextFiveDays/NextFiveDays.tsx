@@ -1,7 +1,8 @@
 import '../../../App.css'
 import './NextFiveDays.css'
 import DisplayCurrent from '../CurrentDayWeather/CurrentDayWeather';
-import WeatherAlert from '../WeatherAlert/WeatherAlert';
+import { AiOutlineWarning } from 'react-icons/ai';
+
 const { DateTime } = require("luxon");
 
 type Props = {
@@ -41,7 +42,7 @@ const NextFiveDays = (props: Props): JSX.Element => {
       
       alerts.map((a: any, i: any) => {
         displayAlerts.push(
-            <div className="weather-alert-item" key={i}>{alerts[i].event}</div>
+            <div className="weather-alert-item" key={i} title={alerts[i].description}> <AiOutlineWarning />  {alerts[i].event}</div>
         )
       })
       return displayAlerts 

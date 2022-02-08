@@ -15,5 +15,22 @@
 }
 
 .weather-alert-container {
-    background-color: red;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+}
+
+.weather-alert-item {
+    background-color: rgb(228, 176, 62);
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    font-weight: 500;
+    opacity: 60%;
+}
+
+.weather-alert-item:hover {
+    opacity: 100%;
 }
