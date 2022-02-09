@@ -39,19 +39,21 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
     const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
         // check if location is somewhere in the suggestions
-        suggestedLocations.forEach((element) => {
-            if (element === location) {
-                axios.get(`http://localhost:4000/api/weather/${location}`)
-                .then(res => {
-                    handleUpdate(res.data)
-                    setDisplayLocation(res.data.location)
-                    console.log(res)
-                    return
-                }) 
-            }
-        })
-
-        alert('This location is invalid breh')           
+        let suggestions: string[] = []
+        for (let j = 0; j < cities.length; j++){
+            const x: string = cities[j].name
+            const y: string = cities[j].country
+        
+            if (x +', ' + y === location) {
+            axios.get(`http://localhost:4000/api/weather/${location}`)
+            .then(res => {
+                handleUpdate(res.data)
+                setDisplayLocation(res.data.location)
+                console.log(res)
+                return
+            }) 
+        }}
+        alert('Wrong location breh')
     }
 
     const setSuggestions = (loc: string) => {
