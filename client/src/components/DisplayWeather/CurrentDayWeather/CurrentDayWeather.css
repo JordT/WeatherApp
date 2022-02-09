@@ -1,8 +1,6 @@
 .current-weather-container {
-    flex-grow: 2;
     width: 60vw;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    align-self: center;
 }
 
 /* flexbox that should be rows */
