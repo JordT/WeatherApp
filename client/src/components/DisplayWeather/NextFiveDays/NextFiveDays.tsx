@@ -54,7 +54,7 @@ const NextFiveDays = (props: Props): JSX.Element => {
             <div className="weather-container">
                 <div className="weather-alert-container">
                     {/* Most locations have no weather warning. Trying to map an undefined object will brick the client.*/}
-                    {(props.location.alerts !== undefined) ? DisplayAlert(props.location.alerts) : <div> <br/></div>}
+                    {(props.location.alerts) ? DisplayAlert(props.location.alerts) : <div> <br/></div>}
                 </div>
                 <DisplayCurrent currentDay={props.location.current} currentWeather={props.location.daily[0]} />
                 <div className="card-container">
