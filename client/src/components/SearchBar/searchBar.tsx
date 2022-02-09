@@ -38,13 +38,20 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
     const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        // Calling our backend express server to get data  
-        axios.get(`http://localhost:4000/api/weather/${location}`)
-        .then(res => {
-            handleUpdate(res.data)
-            setDisplayLocation(res.data.location)
-            console.log(res)
-        })    
+        // check if location is somewhere in the suggestions
+        suggestedLocations.forEach((element) => {
+            if (element === location) {
+                axios.get(`http://localhost:4000/api/weather/${location}`)
+                .then(res => {
+                    handleUpdate(res.data)
+                    setDisplayLocation(res.data.location)
+                    console.log(res)
+                    return
+                }) 
+            }
+        })
+
+        alert('This location is invalid breh')           
     }
 
     const setSuggestions = (loc: string) => {
