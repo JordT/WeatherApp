@@ -38,6 +38,7 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
     const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
+        
         let found: boolean = false;
 
         // Attempting to check if the location submitted matches the data in the example JSON.
