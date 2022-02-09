@@ -40,12 +40,15 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
         e.preventDefault()
         let found: boolean = false;
 
+        // Attempting to check if the location submitted matches the data in the example JSON.
+        // If there is a match, then exit the loop, and assign 'found' to true.
         for (let j = 0; j < cities.length; j++){
             if (cities[j].name +', ' + cities[j].country === location) {
                 found = true;
                 break;
         }}
 
+        // If 'found' is true, then call the API with the location data submitted.
         if (found) {
             axios.get(`http://localhost:4000/api/weather/${location}`)
             .then(res => {
@@ -54,6 +57,8 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
                 console.log(res)
             }) 
         }
+
+        // If 'found' is false, then do not call the API, and alert the user that they need to re-submit
         if (!found) {
             alert('Please choose a location from the drop-down menu.')
         }
