@@ -1,20 +1,22 @@
 import { Request, Response } from "express";
 import axios from "axios";
-import { json } from "stream/consumers";
-
+import cities from 'cities.json'
 require('dotenv').config()
 
 const getWeatherData = (req: Request, res: Response) => {
 
   let location: string = req.params.location;
-  let formattedAddress: string;
-  let lat: number;
-  let lon: number;
-  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.GCP_API_KEY}`)
-  .then(r => {
-    lat = r.data.results[0].geometry.location.lat
-    lon = r.data.results[0].geometry.location.lng
-    formattedAddress = r.data.results[0].formatted_address;
+  let formattedAddress: string = location
+  let lat: string;
+  let lon: string;
+
+  for (let j = 0; j < cities.length; j++) {
+    if (cities[j].name +', ' + cities[j].country === location) {
+      lat = cities[j].lat
+      lon = cities[j].lng
+      break;
+  }}
+    
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${process.env.WEATHER_API_KEY}`)
     .then(r => {
       const weatherInfo = Object.assign(r.data , {location: formattedAddress})
@@ -23,9 +25,6 @@ const getWeatherData = (req: Request, res: Response) => {
     .catch(err => {
       console.log(err)
     })
-  }).catch(err => {
-    console.log(err)
-  })
 }
 
 
