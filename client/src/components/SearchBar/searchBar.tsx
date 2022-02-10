@@ -40,12 +40,16 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
         e.preventDefault()
         
         let found: boolean = false;
-
+        let lat: string;
+        let lon: string;
         // Attempting to check if the location submitted matches the data in the example JSON.
         // If there is a match, then exit the loop, and assign 'found' to true.
         for (let j = 0; j < cities.length; j++){
             if (cities[j].name +', ' + cities[j].country === location) {
                 found = true;
+                lat = cities[j].lat;
+                lon = cities[j].lng;
+                console.log(lat + ' ' + lon)
                 break;
         }}
 
