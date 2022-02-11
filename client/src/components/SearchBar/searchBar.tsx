@@ -14,12 +14,12 @@ type Props = {
 
 const SearchBar = ({onSearch, formattedLocation}: Props) => {
 
-    const [location, setLocation] = useState<string>('Monaco')
+    const [location, setLocation] = useState<string>('Monaco, MC')
     const [suggestedLocations, setSuggestedLocations] = useState<string[]>([cities[1000].name])
     
     // Loads Monaco weather on page load.
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/weather/Monaco`)
+        axios.get(`http://localhost:4000/api/weather/43.73333/7.41667`)
         .then(res => {
             handleUpdate(res.data)
             console.log(res)
@@ -40,22 +40,25 @@ const SearchBar = ({onSearch, formattedLocation}: Props) => {
         e.preventDefault()
         
         let found: boolean = false;
-
+        let lat!: string;
+        let lon!: string;
         // Attempting to check if the location submitted matches the data in the example JSON.
         // If there is a match, then exit the loop, and assign 'found' to true.
         for (let j = 0; j < cities.length; j++){
             if (cities[j].name +', ' + cities[j].country === location) {
                 found = true;
+                lat = cities[j].lat;
+                lon = cities[j].lng;
+                console.log(lat + ' ' + lon)
                 break;
         }}
 
         // If 'found' is true, then call the API with the location data submitted.
         if (found) {
-            axios.get(`http://localhost:4000/api/weather/${location}`)
+            axios.get(`http://localhost:4000/api/weather/${lat}/${lon}`)
             .then(res => {
                 handleUpdate(res.data)
-                setDisplayLocation(res.data.location)
-                console.log(res)
+                setDisplayLocation(location)
             }) 
         }
 
