@@ -1,6 +1,6 @@
 {
-  "name": "weather-app",
-  "version": "0.1.0",
+  "name": "client",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
