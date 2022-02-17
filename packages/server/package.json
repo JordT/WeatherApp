@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "nodemon .",
+    "start": "ttab -w nodemon .",
     "test": "jest"
   },
   "jest": {
