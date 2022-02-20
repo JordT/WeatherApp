@@ -1,0 +1,8 @@
+{
+  "name": "weather-app",
+  "private": true,
+  "workspaces": [
+    "./packages/server",
+    "./packages/client"
+  ]
+}
