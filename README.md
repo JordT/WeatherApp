@@ -10,6 +10,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <img width="684" alt="image" src="https://user-images.githubusercontent.com/62376093/149377109-72625e26-4e45-4128-9b94-ea4f1f661683.png">
 
+## Required Global Packages
+
+- nodemon@2.0.15
+- ttab@0.7.2
+
+
 ## Pull Request & Branch tags
 
 - feat: (new feature for the user, not a new feature for build script)
